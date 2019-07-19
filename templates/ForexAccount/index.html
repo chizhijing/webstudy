@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外汇账户信息</title>
+</head>
+<body>
+    <h1>外汇账户</h1>
+    <div>
+        {% for account in n_list %}
+            <h2> 账户名称: {{ account.account_name }}</h2>
+
+                <h3> 品种 </h3>
+                        <form action="/get_index_page/" method="post">
+                             {% for s in account.symbolinfo_set.all|slice:'12' %}
+                                <p> {{ s.symbol_name }} {{ s.bool_select}}</p>
+                             {% endfor %}
+
+                        </form>
+
+                <h3> 策略 </h3>
+                    {% for strategy in account.strategyinfo_set.all %}
+                        <p> {{ strategy }}</p>
+                    {% endfor %}
+        {% endfor %}
+    </div>
+</body>
+</html>

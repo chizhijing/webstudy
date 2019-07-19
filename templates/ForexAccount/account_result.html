@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账户统计结果</title>
+</head>
+<body>
+    <h1>外汇账户:{{ a_infor.account_name}}</h1>
+    <div>
+        <h2>品种:</h2>
+        <div class="body-main">
+            {% for s in s_list %}
+                <div>
+                    <p>{{ s }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <h2>策略:</h2>
+        {% for ea in ea_list %}
+            <div>
+                <p> {{ ea }}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+    <div>
+        <h2>分析结果:</h2>
+        {% for result in stats %}
+            <p> {{ result }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
